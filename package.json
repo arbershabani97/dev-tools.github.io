@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"main": "public/electron.js",
-	"homepage": "./",
+	"homepage": "http://arbershabani97.github.io/dev-tools.github.io",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/react": "^11.2.5",
@@ -29,7 +29,9 @@
 		"electron": "wait-on tcp:3000 && electron-forge start",
 		"package": "react-scripts build && electron-forge package  --package-manager=yarn",
 		"make": "react-scripts build && electron-forge make --package-manager=yarn",
-		"make-icon": "npx electron-icon-maker --input=/absolute/path/to/cra-electron-forge-demo/src/app-icon.png --output=src"
+		"make-icon": "npx electron-icon-maker --input=/absolute/path/to/cra-electron-forge-demo/src/app-icon.png --output=src",
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -60,7 +62,7 @@
 		]
 	},
 	"devDependencies": {
-		"eslint": "^6.8.0",
+		"eslint": "^7.11.0",
 		"@electron-forge/cli": "^6.0.0-beta.54",
 		"@electron-forge/maker-deb": "^6.0.0-beta.54",
 		"@electron-forge/maker-rpm": "^6.0.0-beta.54",
