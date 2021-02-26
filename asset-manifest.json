@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/dev-tools.github.io/static/css/main.81b415a0.chunk.css",
-    "main.js": "/dev-tools.github.io/static/js/main.bd53d054.chunk.js",
-    "main.js.map": "/dev-tools.github.io/static/js/main.bd53d054.chunk.js.map",
+    "main.js": "/dev-tools.github.io/static/js/main.580a4dbb.chunk.js",
+    "main.js.map": "/dev-tools.github.io/static/js/main.580a4dbb.chunk.js.map",
     "runtime-main.js": "/dev-tools.github.io/static/js/runtime-main.a7b3948b.js",
     "runtime-main.js.map": "/dev-tools.github.io/static/js/runtime-main.a7b3948b.js.map",
-    "static/js/2.4d956d19.chunk.js": "/dev-tools.github.io/static/js/2.4d956d19.chunk.js",
-    "static/js/2.4d956d19.chunk.js.map": "/dev-tools.github.io/static/js/2.4d956d19.chunk.js.map",
+    "static/js/2.b1c9ec70.chunk.js": "/dev-tools.github.io/static/js/2.b1c9ec70.chunk.js",
+    "static/js/2.b1c9ec70.chunk.js.map": "/dev-tools.github.io/static/js/2.b1c9ec70.chunk.js.map",
     "static/js/3.759b75a2.chunk.js": "/dev-tools.github.io/static/js/3.759b75a2.chunk.js",
     "static/js/3.759b75a2.chunk.js.map": "/dev-tools.github.io/static/js/3.759b75a2.chunk.js.map",
     "index.html": "/dev-tools.github.io/index.html",
     "static/css/main.81b415a0.chunk.css.map": "/dev-tools.github.io/static/css/main.81b415a0.chunk.css.map",
-    "static/js/2.4d956d19.chunk.js.LICENSE.txt": "/dev-tools.github.io/static/js/2.4d956d19.chunk.js.LICENSE.txt"
+    "static/js/2.b1c9ec70.chunk.js.LICENSE.txt": "/dev-tools.github.io/static/js/2.b1c9ec70.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a7b3948b.js",
-    "static/js/2.4d956d19.chunk.js",
+    "static/js/2.b1c9ec70.chunk.js",
     "static/css/main.81b415a0.chunk.css",
-    "static/js/main.bd53d054.chunk.js"
+    "static/js/main.580a4dbb.chunk.js"
   ]
 }
