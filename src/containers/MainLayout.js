@@ -16,7 +16,6 @@ const MainLayoutContainer = ({
 	children,
 }) => {
 	const {pathname} = useLocation();
-	// console.log(params)
 	return (
 		<Pane background="tint1" borderRadius={3} display="flex" height="100%">
 			<Pane background="blueTint" flex={1}>
