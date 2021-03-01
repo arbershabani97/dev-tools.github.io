@@ -1,9 +1,5 @@
 import {Ability, AbilityBuilder} from "@casl/ability";
 
-// import persistedStore from "../../store";
-
-// const {store} = persistedStore();
-
 // Defines how to detect object's type
 function subjectName(item) {
 	if (!item || typeof item === "string") return item;
@@ -11,16 +7,6 @@ function subjectName(item) {
 }
 
 const ability = new Ability([], {subjectName});
-
-// eslint-disable-next-line max-statements
-/*
- * store.subscribe(() => {
- * 	const {projects} = store.getState();
- * 	const project = projects.list[projects.activeProject];
- * 	// console.log("aaa", Math.random());
- * 	ability.update(defineRulesFor(project));
- * });
- */
 
 export const abilityUpdater = project => {
 	ability.update(defineRulesFor(project));
@@ -30,9 +16,11 @@ export const abilityUpdater = project => {
 function defineRulesFor(project) {
 	const {can, cannot, rules} = new AbilityBuilder();
 	if (project) {
+		// Project Libraries Rules
 		Object.entries(project.libraries).forEach(([library, used]) => {
 			used ? can("see", library) : cannot("see", library);
 		});
+		// Project State Management Rules
 		Object.entries(project.stateManagement).forEach(([library, used]) => {
 			used ? can("see", library) : cannot("see", library);
 		});
