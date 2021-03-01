@@ -2,7 +2,7 @@
 const {replaceAll} = require("./string");
 
 /* eslint-disable max-statements */
-export const nameExtractor = code => {
+export const nameExtractor = (code = "") => {
 	const matchWords = [];
 	const mixedWords = {};
 
