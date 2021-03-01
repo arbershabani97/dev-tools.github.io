@@ -11,6 +11,13 @@ pre {
 .App {
   text-align: center;
 }
+select:focus{
+  box-shadow: 0 0 0 0px rgb(16 112 202 / 14%), inset 0 0 0 1px rgb(67 90 111 / 30%), inset 0 0 0px 0 rgb(67 90 111 / 14%) !important;
+}
+label, input:focus, a:focus{
+  outline: 0!important;
+  box-shadow: none!important;
+}
 
 .App-logo {
   height: 40vmin;

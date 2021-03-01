@@ -11,6 +11,12 @@ const formReducer = (state, action) => {
 				...state,
 				[action.field]: action.payload,
 			};
+
+		case "UPDATE_ALL":
+			return {
+				...action.payload,
+			};
+
 		default:
 			return state;
 	}

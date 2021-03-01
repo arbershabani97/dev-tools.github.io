@@ -10,6 +10,7 @@ import formReducer from "../reducers/form.reducer";
 import CodeContainer from "../containers/Code";
 import CheckboxPrimary from "../components/Checkbox/CheckboxPrimary";
 import HeadingSecondary from "../components/Heading/HeadingSecondary";
+import Can from "../utils/can/Can";
 
 const initialFormState = {
 	copied: false,
@@ -26,7 +27,7 @@ const initialFormState = {
 const HooksPage = () => {
 	const [formState, dispatch] = useReducer(formReducer, initialFormState);
 
-	const handleChange = e => dispatch({type: "UPDATE", field: e.target.name, payload: e.target.value});
+	const handleInputChange = e => dispatch({type: "UPDATE", field: e.target.name, payload: e.target.value});
 	const handleToggle = e => dispatch({type: "TOGGLE", field: e?.target?.name || "copied"});
 
 	useEffect(() => {
@@ -40,7 +41,7 @@ const HooksPage = () => {
 	return (
 		<MainLayoutContainer alignItems="stretch" flexDirection="row">
 			<ContentContainer title="Hooks">
-				<TextInput marginBottom={16} name="name" onChange={handleChange} placeholder="Component Name" value={formState.name} />
+				<TextInput marginBottom={16} name="name" onChange={handleInputChange} placeholder="Component Name" value={formState.name} />
 
 				<CodeContainer code={renderedString} copied={formState.copied} handleCopy={handleToggle} />
 			</ContentContainer>
@@ -60,13 +61,21 @@ const HooksPage = () => {
 
 				<CheckboxPrimary checked={formState.useEffectUpdate} name="useEffectUpdate" onChange={handleToggle} />
 
-				<HeadingSecondary text="Redux" />
+				<Can I="see" on="react-redux">
+					<HeadingSecondary text="Redux (Library)" />
 
-				<CheckboxPrimary checked={formState.mapStateToProps} name="mapStateToProps" onChange={handleToggle} />
+					<CheckboxPrimary checked={formState.mapStateToProps} name="mapStateToProps" onChange={handleToggle} />
 
-				<CheckboxPrimary checked={formState.mapDispatchToProps} name="mapDispatchToProps" onChange={handleToggle} />
+					<CheckboxPrimary checked={formState.mapDispatchToProps} name="mapDispatchToProps" onChange={handleToggle} />
 
-				<CheckboxPrimary checked={formState.connect} name="connect" onChange={handleToggle} />
+					<CheckboxPrimary checked={formState.connect} name="connect" onChange={handleToggle} />
+				</Can>
+
+				<Can I="see" on="react-hook-form">
+					<HeadingSecondary text="React Hook Forms (Library)" />
+
+					<CheckboxPrimary checked={formState["Input - Text"]} name="Input - Text" onChange={handleToggle} />
+				</Can>
 			</SidebarContainer>
 		</MainLayoutContainer>
 	);
