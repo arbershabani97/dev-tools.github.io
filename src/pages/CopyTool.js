@@ -12,6 +12,7 @@ import MainLayoutContainer from "../containers/MainLayout";
 import SidebarContainer from "../containers/Sidebar";
 import formReducer from "../reducers/form.reducer";
 import {nameExtractor} from "../utils/extractNames";
+import fileReader from "../utils/fileReader";
 import {capitalizeInverse, replaceAll} from "../utils/string";
 
 import "./CopyTool.scss";
@@ -87,20 +88,13 @@ const CopyToolPage = () => {
 		handleChange("codePreview", res2);
 	}, [formState.replace, formState.default, formState.capitalizeInverse, formState.uppercase]);
 
-	const onDrop = files => {
-		const f = files[0];
-		const reader = new FileReader();
-		reader.onload = (function(theFile) {
-			return function(e) {
-				handleChange("code", e.target.result);
-				handleChange("codePreview", e.target.result);
-				handleChange("originalCode", e.target.result);
-				handleChange("suggestions", nameExtractor(e.target.result));
-			};
-		})(f);
-		// Read in the image file as a data URL.
-		reader.readAsText(f);
-	};
+	const onDrop = files =>
+		fileReader(files, text => {
+			handleChange("code", text);
+			handleChange("codePreview", text);
+			handleChange("originalCode", text);
+			handleChange("suggestions", nameExtractor(text));
+		});
 
 	return (
 		<MainLayoutContainer alignItems="stretch" flexDirection="row">

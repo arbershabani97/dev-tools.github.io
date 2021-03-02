@@ -1,7 +1,4 @@
-/* eslint-disable react/jsx-newline */
-/* eslint-disable func-names */
-/* eslint-disable no-return-assign */
-/* eslint-disable max-statements */
+/* eslint-disable react/jsx-newline, no-return-assign,max-statements */
 import {Button, Checkbox, CrossIcon, Dialog, Pane, Radio, RadioGroup, Tab, TabNavigation, Text, TextInput} from "evergreen-ui";
 import React, {useEffect, useReducer, useRef, useState} from "react";
 import {connect} from "react-redux";
@@ -21,6 +18,7 @@ import reactNativeLibraries from "../static/reactNativeLibraries";
 import newProject from "../static/projects";
 import Config from "../utils/config";
 import "./Settings.scss";
+import fileReader from "../utils/fileReader";
 
 const SettingsPage = ({projects, setPages, addProject, editProject, removeProject, pages, setProjects}) => {
 	const fileInput = useRef(null);
@@ -71,17 +69,11 @@ const SettingsPage = ({projects, setPages, addProject, editProject, removeProjec
 		FileSaver.saveAs(file, `dev-tools ${moment().format("DD-MMM")}.json`);
 	};
 	const importConfig = e => {
-		const f = e.target.files[0];
-		const reader = new FileReader();
-		reader.onload = (function(theFile) {
-			return function(_e) {
-				setConfirmImportDialog(true);
-				setImportedProjects(JSON.parse(_e.target.result));
-				e.target.value = null;
-			};
-		})(f);
-		// Read in the image file as a data URL.
-		reader.readAsText(f);
+		fileReader(e.target.files, text => {
+			setConfirmImportDialog(true);
+			setImportedProjects(JSON.parse(text));
+			e.target.value = null;
+		});
 	};
 	const handleFileChange = () => fileInput.current.click();
 	const replaceConfig = () => {
@@ -157,13 +149,13 @@ const SettingsPage = ({projects, setPages, addProject, editProject, removeProjec
 				<Pane background="blueTint" border="muted" display="flex" flexDirection="column" flexGrow={1} padding={20} width="100%">
 					<Pane marginLeft="auto" marginRight="auto" minWidth={300} width="40%">
 						<Pane marginBottom={16} role="group">
-							<RadioGroup label="Name" marginBottom={8} textAlign="left" value />
+							<RadioGroup label="Name" marginBottom={8} options={[]} textAlign="left" value="name" />
 
 							<TextInput marginBottom={16} name="name" onChange={handleInputChange} placeholder="Project Name" value={formState.name} />
 						</Pane>
 
 						<Pane marginBottom={16} role="group">
-							<RadioGroup label="Select Language" textAlign="left" value />
+							<RadioGroup label="Select Language" options={[]} textAlign="left" value="language" />
 
 							<Pane display="flex">
 								<Radio checked={formState.language === "react"} label="React" marginRight={15} name="group" onClick={() => handleChange("language", "react")} />
@@ -173,7 +165,7 @@ const SettingsPage = ({projects, setPages, addProject, editProject, removeProjec
 						</Pane>
 
 						<Pane marginBottom={16} role="group">
-							<RadioGroup label="Libraries" textAlign="left" value />
+							<RadioGroup label="Libraries" options={[]} textAlign="left" value="libraries" />
 
 							{Object.entries(formState.libraries).map(([key, val]) => (
 								<Checkbox key={Math.random()} checked={val} label={key} margin={8} onClick={() => handleChange("libraries", {...formState.libraries, [key]: !val})} />
@@ -181,7 +173,7 @@ const SettingsPage = ({projects, setPages, addProject, editProject, removeProjec
 						</Pane>
 
 						<Pane marginBottom={32} role="group">
-							<RadioGroup label="State Management" textAlign="left" value />
+							<RadioGroup label="State Management" options={[]} textAlign="left" value="stateManagement" />
 
 							{Object.entries(formState.stateManagement).map(([key, val]) => (
 								<Checkbox key={Math.random()} checked={val} label={key} margin={8} onClick={() => handleChange("stateManagement", {...formState.stateManagement, [key]: !val})} />

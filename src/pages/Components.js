@@ -53,7 +53,7 @@ const ComponentsPage = () => {
 	}, [formState.copied]);
 
 	const renderedString = componentLiteral(formState);
-	console.log(renderedString);
+
 	return (
 		<MainLayoutContainer alignItems="stretch" flexDirection="row">
 			<ContentContainer title="Components">
