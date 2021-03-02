@@ -5,7 +5,7 @@
 	"main": "public/electron.js",
 	"homepage": "./",
 	"dependencies": {
-		"@casl/ability": "^3.4.0",
+		"@casl/ability": "^5.2.2",
 		"@casl/react": "^2.2.2",
 		"@testing-library/jest-dom": "^5.11.9",
 		"@testing-library/react": "^11.2.5",
@@ -13,7 +13,10 @@
 		"electron-is-dev": "^1.2.0",
 		"electron-squirrel-startup": "^1.0.0",
 		"evergreen-ui": "^5.1.2",
+		"file-saver": "^2.0.5",
 		"lodash": "^4.17.21",
+		"moment": "^2.29.1",
+		"node-sass": "^5.0.0",
 		"react": "^17.0.1",
 		"react-copy-to-clipboard": "^5.0.3",
 		"react-dom": "^17.0.1",
@@ -26,6 +29,7 @@
 		"redux": "^4.0.5",
 		"redux-persist": "^6.0.0",
 		"redux-thunk": "^2.3.0",
+		"sass": "^1.32.8",
 		"web-vitals": "^1.1.0"
 	},
 	"scripts": {

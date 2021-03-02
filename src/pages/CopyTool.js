@@ -14,6 +14,8 @@ import formReducer from "../reducers/form.reducer";
 import {nameExtractor} from "../utils/extractNames";
 import {capitalizeInverse, replaceAll} from "../utils/string";
 
+import "./CopyTool.scss";
+
 const baseStyle = {
 	flex: 1,
 	display: "flex",
@@ -116,7 +118,7 @@ const CopyToolPage = () => {
 					Suggestions:
 				</Text>
 
-				<Pane display="flex" marginBottom={16}>
+				<Pane display="flex" flexWrap="wrap" marginBottom={16}>
 					{formState.suggestions.map(word => (
 						<Text key={word} color="#1070ca" cursor="pointer" fontSize={12} marginBottom={4} marginRight={5} marginTop={2} onClick={() => handleChange("find", word)} size={300}>
 							{word}
@@ -137,13 +139,13 @@ const CopyToolPage = () => {
 						Editor
 					</Tab>
 				</TabNavigation>
-				<Pane alignSelf="stretch" width="auto">
-					{formState.currentTab === 1 && <CodeContainer code={formState.codePreview} copied={false} maxHeight="70vh" />}
-					{formState.currentTab === 2 && <CodeContainer code={formState.code} copied={false} maxHeight="70vh" />}
-					{formState.currentTab === 3 && <CodeContainer code={formState.originalCode} copied={false} maxHeight="70vh" />}
+				<Pane alignSelf="stretch" display="flex" flexDirection="column" position="relative" width="auto">
+					{formState.currentTab === 1 && <CodeContainer code={formState.codePreview} copied={false} maxHeight="55vh" />}
+					{formState.currentTab === 2 && <CodeContainer code={formState.code} copied={false} maxHeight="55vh" />}
+					{formState.currentTab === 3 && <CodeContainer code={formState.originalCode} copied={false} maxHeight="55vh" />}
 					{/* {formState.currentTab === 4 && <CodeContainer code={originalCode} copied={false} maxHeight="70vh" />} */}
 				</Pane>
-				<Pane alignSelf="stretch" marginTop={16}>
+				<Pane alignSelf="stretch" className="Dropzone" marginTop={16}>
 					<Dropzone onDrop={onDrop}>
 						{({getRootProps, getInputProps, isDragActive}) => (
 							<section>

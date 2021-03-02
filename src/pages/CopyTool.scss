@@ -1,0 +1,12 @@
+.Dropzone:hover {
+    div{
+        border-color: #1070ca!important;
+        color: #1070ca!important;
+    }
+}
+.Dropzone {
+    div{
+        cursor:pointer;
+        transition: border 0.24s ease-in-out 0s, color 0.24s ease-in-out 0s !important;
+    }
+}

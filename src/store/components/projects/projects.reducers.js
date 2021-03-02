@@ -1,6 +1,7 @@
+import _cloneDeep from "lodash/cloneDeep";
 import newProject from "../../../static/projects";
 import reactLibraries from "../../../static/reactLibraries";
-import {GET_PROJECTS, SET_PROJECTS, ADD_PROJECT, EDIT_PROJECT, SET_ACTIVE_PROJECT} from "../../actionTypes";
+import {SET_PROJECTS, ADD_PROJECT, EDIT_PROJECT, SET_ACTIVE_PROJECT, REMOVE_PROJECT} from "../../actionTypes";
 
 const initialState = {
 	list: {
@@ -23,14 +24,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
 	switch (action.type) {
-		case GET_PROJECTS:
-			return {
-				...state,
-			};
-
 		case SET_PROJECTS:
 			return {
-				...state,
+				...action.payload,
 			};
 		case SET_ACTIVE_PROJECT:
 			return {
@@ -57,6 +53,14 @@ export default (state = initialState, action) => {
 					[action.payload.id]: action.payload,
 				},
 			};
+
+		case REMOVE_PROJECT:
+			const newState = _cloneDeep(state);
+			delete newState.list[action.payload];
+			newState.order = newState.order.filter(id => id !== action.payload);
+			// eslint-disable-next-line prefer-destructuring
+			if (action.payload === newState.activeProject) newState.activeProject = newState.order[0];
+			return newState;
 
 		default:
 			return state;
