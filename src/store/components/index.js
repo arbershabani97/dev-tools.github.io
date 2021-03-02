@@ -20,7 +20,6 @@ const rootReducer = (state, action) => {
 	if (action.type === "persist/REHYDRATE") {
 		abilityUpdater(action.payload.projects.list[action.payload.projects.activeProject]);
 	}
-	console.log(state, action);
 
 	return appReducer(state, action);
 };
