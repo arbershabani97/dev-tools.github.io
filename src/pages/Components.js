@@ -20,6 +20,7 @@ const initialFormState = {
 	state: false,
 	componentDidMount: false,
 	componentDidUpdate: false,
+
 	mapStateToProps: false,
 	reduxState: [],
 	mapDispatchToProps: false,
@@ -95,19 +96,19 @@ const ComponentsPage = () => {
 
 				<HeadingSecondary text="Forms" />
 
-				<CheckboxPrimary checked={formState["Input - Text"]} name="Input - Text" onChange={handleToggle} />
+				<CheckboxPrimary checked={formState["Input - Text"]} label={`Input - Text ${formState.formText.length ? `(${formState.formText.length})` : ""}`} name="Input - Text" onChange={handleToggle} />
 
 				{formState["Input - Text"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formText", values)} values={formState.formText} width="100%" />}
 
-				<CheckboxPrimary checked={formState["Input - Number"]} name="Input - Number" onChange={handleToggle} />
+				<CheckboxPrimary checked={formState["Input - Number"]} label={`Input - Number ${formState.formNumber.length ? `(${formState.formNumber.length})` : ""}`} name="Input - Number" onChange={handleToggle} />
 
 				{formState["Input - Number"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formNumber", values)} values={formState.formNumber} width="100%" />}
 
-				<CheckboxPrimary checked={formState["Input - Search"]} name="Input - Search" onChange={handleToggle} />
+				<CheckboxPrimary checked={formState["Input - Search"]} label={`Input - Search ${formState.formSearch.length ? `(${formState.formSearch.length})` : ""}`} name="Input - Search" onChange={handleToggle} />
 
 				{formState["Input - Search"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formSearch", values)} values={formState.formSearch} width="100%" />}
 
-				<CheckboxPrimary checked={formState["Input - Date"]} name="Input - Date" onChange={handleToggle} />
+				<CheckboxPrimary checked={formState["Input - Date"]} label={`Input - Date ${formState.formDate.length ? `(${formState.formDate.length})` : ""}`} name="Input - Date" onChange={handleToggle} />
 
 				{formState["Input - Date"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formDate", values)} values={formState.formDate} width="100%" />}
 

@@ -1,5 +1,9 @@
+/* eslint-disable complexity */
+import {renderHookStateFromForm, renderHookForm, renderHookFormFunctions} from "./form.literal";
+
 export const componentLiteral = data => {
-	const {name, withRouter, state, useEffect, useEffectUpdate, mapStateToProps, mapDispatchToProps, connect} = data;
+	// eslint-disable-next-line no-unused-vars
+	const {name, withRouter, state, useEffect, useEffectUpdate, mapStateToProps, mapDispatchToProps, connect, reduxState, reduxActions, formText, formNumber, formSearch, formDate, loading, handleSubmit} = data;
 
 	let exportString = name;
 	if (withRouter) exportString = `withRouter(${name})`;
@@ -23,12 +27,12 @@ const ${name} = (${withRouter ? `{ match, location, history }` : ""}) => {${
     const [title, setTitle] = useState("");
 `
 			: ""
-	}${
+	}${formText.length || formNumber.length || formSearch.length || formDate.length ? renderHookStateFromForm(formText, formNumber, formSearch, formDate, loading) : ""}${
 		useEffect
 			? `
     useEffect(() => {
 
-    }, [])
+    }, []);
 `
 			: ""
 	}${
@@ -36,26 +40,42 @@ const ${name} = (${withRouter ? `{ match, location, history }` : ""}) => {${
 			? `
     useEffect(() => {
         // run fn when id is updated
-    }, [id])
+    }, [id]);
 `
 			: ""
-	}
+	}${handleSubmit ? renderHookFormFunctions(formText, formNumber, formSearch, formDate, reduxActions, loading) : ""}
     return (
         <div>
-            ${name}
+            ${name}${renderHookForm(formText, formNumber, formSearch, formDate, handleSubmit, loading)}
         </div>
     )
 }${
-		mapStateToProps
+		mapStateToProps || reduxState.length
 			? `
-const mapStateToProps = ({ }) => ({ });`
+const mapStateToProps = ({ ${reduxState.join(", ")} }) => ({ ${reduxState.join(", ")} });`
 			: ""
 	}${
-		mapDispatchToProps
+		mapDispatchToProps || reduxActions.length
 			? `
-const mapDispatchToProps = {};`
+const mapDispatchToProps = {${reduxActions.join(", ")}};`
 			: ""
 	}
 
 export default ${exportString};`;
 };
+
+export const sampleHook = `import React, { useState } from 'react';
+
+const Example = () => {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}`;

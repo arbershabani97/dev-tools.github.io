@@ -29,14 +29,6 @@ const MainLayoutContainer = ({tabs = pages, pages: _pages, projects, setActivePr
 				<Pane alignItems="center" display="flex" flexDirection="column" marginBottom={16}>
 					<HeadingSecondary text="Projects" />
 
-					{/* <SelectField label="Project" marginLeft="auto" marginRight="auto" onChange={e => setActiveProject(Number(e.target.value))} width={120}>
-					{_projects.map(({label, value}) => (
-						<option key={value} selected={value === projects.activeProject} value={value}>
-							{label}
-						</option>
-					))}
-				</SelectField> */}
-
 					<Pane display="flex" justifyContent="center">
 						{_projects.map(({label, value}) => (
 							<Text
@@ -57,8 +49,6 @@ const MainLayoutContainer = ({tabs = pages, pages: _pages, projects, setActivePr
 						))}
 					</Pane>
 				</Pane>
-
-				{/* <SegmentedControl name="switch" onChange={setActiveProject} options={_projects} padding={4} value={projects.activeProject} /> */}
 			</Pane>
 
 			<Pane alignItems={alignItems} border="muted" display="flex" flex={4} flexDirection={flexDirection} overflowY="scroll">

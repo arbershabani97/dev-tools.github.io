@@ -4,11 +4,11 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import {solarizedDark} from "react-syntax-highlighter/dist/esm/styles/hljs";
 import {CopyToClipboard} from "react-copy-to-clipboard";
 
-const CodeContainer = ({copied, code, handleCopy, maxHeight = "80vh"}) => {
+const CodeContainer = ({copied, code, handleCopy, maxHeight = "80vh", language = "javascript"}) => {
 	return (
 		<Pane alignSelf="stretch" background="blueTint" border="muted" borderRadius={5} fontSize={12} maxHeight={maxHeight} position="relative" textAlign="left">
 			<Pane maxHeight="100%" overflowY="scroll">
-				<SyntaxHighlighter language="javascript" style={solarizedDark}>
+				<SyntaxHighlighter language={language} style={solarizedDark}>
 					{code || "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"}
 				</SyntaxHighlighter>
 			</Pane>
