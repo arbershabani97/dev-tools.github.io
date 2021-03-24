@@ -15,6 +15,9 @@ export const abilityUpdater = project => {
 // eslint-disable-next-line max-statements,complexity
 function defineRulesFor(project) {
 	const {can, cannot, rules} = new AbilityBuilder();
+	if (project.language) {
+		can("use", project.language);
+	}
 	if (project && project.libraries && project.stateManagement) {
 		// Project Libraries Rules
 		Object.entries(project.libraries).forEach(([library, used]) => {

@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-handler-names */
 import {TagInput, TextInput} from "evergreen-ui";
 import React, {useEffect, useReducer} from "react";
-import MainLayoutContainer from "../containers/MainLayout";
+import MainLayoutContainer from "../../containers/MainLayout";
 
-import ContentContainer from "../containers/Content";
-import SidebarContainer from "../containers/Sidebar";
-import {componentLiteral} from "./literals/Components.literal";
+import ContentContainer from "../../containers/Content";
+import SidebarContainer from "../../containers/Sidebar";
+import {componentLiteral} from "../literals/ComponentsRN.literal";
 
-import formReducer from "../reducers/form.reducer";
-import CodeContainer from "../containers/Code";
-import CheckboxPrimary from "../components/Checkbox/CheckboxPrimary";
-import HeadingSecondary from "../components/Heading/HeadingSecondary";
-import Can from "../utils/can/Can";
+import formReducer from "../../reducers/form.reducer";
+import CodeContainer from "../../containers/Code";
+import CheckboxPrimary from "../../components/Checkbox/CheckboxPrimary";
+import HeadingSecondary from "../../components/Heading/HeadingSecondary";
+import Can from "../../utils/can/Can";
 
 const initialFormState = {
 	copied: false,
@@ -104,13 +104,13 @@ const ComponentsPage = () => {
 
 				{formState["Input - Number"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formNumber", values)} values={formState.formNumber} width="100%" />}
 
-				<CheckboxPrimary checked={formState["Input - Search"]} label={`Input - Search ${formState.formSearch.length ? `(${formState.formSearch.length})` : ""}`} name="Input - Search" onChange={handleToggle} />
+				{/* <CheckboxPrimary checked={formState["Input - Search"]} label={`Input - Search ${formState.formSearch.length ? `(${formState.formSearch.length})` : ""}`} name="Input - Search" onChange={handleToggle} />
 
 				{formState["Input - Search"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formSearch", values)} values={formState.formSearch} width="100%" />}
 
 				<CheckboxPrimary checked={formState["Input - Date"]} label={`Input - Date ${formState.formDate.length ? `(${formState.formDate.length})` : ""}`} name="Input - Date" onChange={handleToggle} />
 
-				{formState["Input - Date"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formDate", values)} values={formState.formDate} width="100%" />}
+				{formState["Input - Date"] && <TagInput inputProps={{placeholder: "Write name and enter..."}} marginBottom={8} onChange={values => handleChange("formDate", values)} values={formState.formDate} width="100%" />} */}
 
 				<CheckboxPrimary checked={formState.handleSubmit} name="handleSubmit" onChange={handleToggle} />
 
