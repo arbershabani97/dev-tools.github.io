@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-handler-names */
 import {TagInput, TextInput} from "evergreen-ui";
 import React, {useEffect, useReducer} from "react";
-import MainLayoutContainer from "../containers/MainLayout";
+import MainLayoutContainer from "../../containers/MainLayout";
 
-import ContentContainer from "../containers/Content";
-import SidebarContainer from "../containers/Sidebar";
-import {componentLiteral} from "./literals/Hooks.literal";
+import ContentContainer from "../../containers/Content";
+import SidebarContainer from "../../containers/Sidebar";
+import {componentLiteral} from "../literals/Hooks.literal";
 
-import formReducer from "../reducers/form.reducer";
-import CodeContainer from "../containers/Code";
-import CheckboxPrimary from "../components/Checkbox/CheckboxPrimary";
-import HeadingSecondary from "../components/Heading/HeadingSecondary";
-import Can from "../utils/can/Can";
+import formReducer from "../../reducers/form.reducer";
+import CodeContainer from "../../containers/Code";
+import CheckboxPrimary from "../../components/Checkbox/CheckboxPrimary";
+import HeadingSecondary from "../../components/Heading/HeadingSecondary";
+import Can from "../../utils/can/Can";
 
 const initialFormState = {
 	copied: false,

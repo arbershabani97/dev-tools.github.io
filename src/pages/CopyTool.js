@@ -146,8 +146,7 @@ const CopyToolPage = () => {
 								<div {...getRootProps()} style={{...baseStyle, ...(isDragActive ? activeStyle : {})}}>
 									<input {...getInputProps()} />
 
-									{/* eslint-disable-next-line react/no-unescaped-entities */}
-									<p>Drag'n'drop here</p>
+									<p>Drag&apos;n&apos;drop here</p>
 								</div>
 							</section>
 						)}

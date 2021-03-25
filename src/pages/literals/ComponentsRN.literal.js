@@ -70,7 +70,7 @@ export default ${exportString};`;
 };
 
 export const sampleComponent = `class Welcome extends React.Component {
-	render() {
-		return <Text>Hello, {this.props.name}</Text>;
-	}
+    render() {
+        return <Text>Hello, {this.props.name}</Text>;
+    }
 }`;

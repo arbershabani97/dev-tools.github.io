@@ -9,7 +9,7 @@ import CopyToolPage from "./pages/CopyTool";
 import ExtractToolPage from "./pages/ExtractTool";
 import BoilerplatePage from "./pages/Boilerplate";
 import ComponentsPage from "./pages/Components/index";
-import HooksPage from "./pages/Hooks";
+import HooksPage from "./pages/Hooks/index";
 import SettingsPage from "./pages/Settings";
 import AdvancedConceptsPage from "./pages/AdvancedConcepts";
 

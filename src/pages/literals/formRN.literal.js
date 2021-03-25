@@ -184,8 +184,10 @@ export const renderHookForm = (formText, formNumber, formSearch, formDate, handl
             ${handleSubmit ? "<form onSubmit={handleSubmit}>" : ""}${[...renderFormTexts, ...renderFormNumbers, ...renderFormSearches, ...renderFormDates].join("")}${
 		handleSubmit
 			? `
-                <button type="submit"${loading ? ` disabled={loading}` : ""}>Submit</button>
-            </form>`
+				<TouchableOpacity ${loading ? ` disabled={loading}` : ""}>
+					<Text>Submit</Text>
+				</TouchableOpacity>
+            </View>`
 			: ""
 	}
     `;

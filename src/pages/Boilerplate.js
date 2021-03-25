@@ -13,9 +13,12 @@ import MainLayoutContainer from "../containers/MainLayout";
 import SidebarContainer from "../containers/Sidebar";
 import formReducer from "../reducers/form.reducer";
 import tabs from "../static/boilerplate";
+import Can from "../utils/can/Can";
 import {sampleComponent} from "./literals/Components.literal";
+import {sampleComponent as sampleComponentRN} from "./literals/ComponentsRN.literal";
 import {eslintConfig} from "./literals/ESLint.literal";
 import {sampleHook} from "./literals/Hooks.literal";
+import {sampleHook as sampleHookRN} from "./literals/HooksRN.literal";
 import {prettierConfig, prettierGitHooksConfig} from "./literals/Prettier.literal";
 
 const initialFormState = {
@@ -47,7 +50,13 @@ const BoilerplatePage = () => {
 					</Paragraph>
 
 					<HeadingFile file="Welcome.jsx" />
-					<CodeContainer code={sampleComponent} handleCopy={handleToggle} />
+					<Can I="use" on="react">
+						<CodeContainer code={sampleComponent} handleCopy={handleToggle} />
+					</Can>
+					<Can I="use" on="react-native">
+						<CodeContainer code={sampleComponentRN} handleCopy={handleToggle} />
+					</Can>
+
 					<HeadingInfo id="react-hooks" marginTop={16} paddingTop={16} text="React Basics" />
 					<HeadingPrimary text="Hooks" />
 
@@ -57,7 +66,12 @@ const BoilerplatePage = () => {
 					</Paragraph>
 
 					<HeadingFile file="Example.js" />
-					<CodeContainer code={sampleHook} handleCopy={handleToggle} />
+					<Can I="use" on="react">
+						<CodeContainer code={sampleHook} handleCopy={handleToggle} />
+					</Can>
+					<Can I="use" on="react-native">
+						<CodeContainer code={sampleHookRN} handleCopy={handleToggle} />
+					</Can>
 				</Pane>
 				<hr width="100%" />
 				<Pane flexShrink={0} height="auto" marginBottom={32} paddingBottom={16} textAlign="left" width="100%">

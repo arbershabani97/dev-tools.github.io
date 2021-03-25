@@ -8,7 +8,7 @@ const CodeContainer = ({copied, code, handleCopy, maxHeight = "80vh", language =
 	return (
 		<Pane alignSelf="stretch" background="blueTint" border="muted" borderRadius={5} fontSize={12} maxHeight={maxHeight} position="relative" textAlign="left">
 			<Pane maxHeight="100%" overflowY="scroll">
-				<SyntaxHighlighter language={language} style={solarizedDark}>
+				<SyntaxHighlighter language={language} showLineNumbers style={solarizedDark}>
 					{code || "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"}
 				</SyntaxHighlighter>
 			</Pane>
